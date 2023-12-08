@@ -26,8 +26,8 @@ export const part1 = ([directions, locations]: string[]) => {
   return walkPath(network, steps, 0, "AAA");
 };
 
-export const part2 = ([directions, locations]: string[]) => {
+export const part2 = async ([directions, locations]: string[]) => {
   const { network, paths, steps } = parse([directions, locations]);
-  const counts = paths.map((path) => walkPath(network, steps, 0, path));
+  const counts = await Promise.all(paths.map((path) => Promise.resolve(walkPath(network, steps, 0, path))));
   return counts.reduce((lcm, count) => leastCommonMultiple(lcm as number, count as number), 1);
 };

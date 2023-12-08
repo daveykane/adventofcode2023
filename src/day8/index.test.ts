@@ -19,10 +19,10 @@ Rhum.testPlan("Advent of Code - Day Eight", () => {
 
   Rhum.testSuite("Part Two", () => {
     Rhum.testCase("should get 6", async () => {
-      assertEquals(part2((await getInput("day8", "input-example3")).split("\n\n")), 6);
+      assertEquals(await part2((await getInput("day8", "input-example3")).split("\n\n")), 6);
     });
     Rhum.testCase("should get 21165830176709", async () => {
-      assertEquals(part2((await getInput("day8")).split("\n\n")), 21165830176709);
+      assertEquals(await part2((await getInput("day8")).split("\n\n")), 21165830176709);
     });
   });
 });
